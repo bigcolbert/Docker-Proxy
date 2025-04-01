@@ -77,7 +77,7 @@
 - [x] 支持一键配置本机Docker代理和容器服务代理(HTTP_PROXY)，仅支持http
 - [x] 支持国内服务器一键部署，解决国内环境无法安装Docker\Compose服务难题
 - [x] 支持主流Linux发行版操作系统,例如Centos、Ubuntu、Rocky、Debian、Rhel等，支持主流ARCH架构下部署，包括linux/amd64、linux/arm64
-- [x] HubCMD-UI服务，实现镜像搜索、文档教程、容器管理、容器监控告警、网络测试等功能，[Demo](https://dqzboy.github.io/proxyui/)
+- [x] HubCMD-UI服务，面板展示、镜像搜索、文档教程、容器管理、容器监控、网络测试、用户中心等功能
 
 ## 📦 部署
 ### 通过项目脚本部署
@@ -95,6 +95,12 @@ bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/dqzboy/Docker-Proxy/install/Do
 
 # 国内Github代理地址
 bash -c "$(curl -fsSL https://ghp.ci/https://raw.githubusercontent.com/dqzboy/Docker-Proxy/main/install/DockerProxy_Install.sh)"
+```
+
+- **Hubcmd-UI** 面板,通过脚本安装
+
+```
+执行上面脚本，选项为：2 ---> 8 ---> 1
 ```
 
 ### 部署到第三方平台
@@ -121,7 +127,7 @@ bash -c "$(curl -fsSL https://ghp.ci/https://raw.githubusercontent.com/dqzboy/Do
 
 ### Docker Compose 部署
 <details>
-<summary><strong>手动部署容器</strong></summary>
+<summary><strong>点击查看</strong></summary>
 <div>
 
 **⚠️ 注意：** 你需要对哪个镜像仓库进行加速，就下载哪个配置。`docker-compose.yaml`文件默认是部署所有的国外镜像仓库的加速服务，同样也是你部署哪个就配置哪个，其余的删除掉即可！
@@ -147,38 +153,10 @@ docker logs -f [容器ID或名称]
 </details>
 
 
-## ✨ 教程
-#### 配置Nginx反向代理
-> **注意**： 如果你选择部署的是Nginx，那么代理程序部署完成之后，需自行配置 Nginx <br>
-
-**1.下载仓库下的nginx配置文件 [registry-proxy.conf](https://raw.githubusercontent.com/dqzboy/Docker-Proxy/main/nginx/registry-proxy.conf) 到你的nginx服务下，并修改配置里的域名和证书部分** <br>
-**2.在你的DNS服务提供商将相应的访问域名解析到部署docker proxy服务的机器IP上** <br>
-**3.修改Docker的daemon.json配置，配置你自建的Registry地址。修改后重启docker**
-```shell
-~]# vim /etc/docker/daemon.json
-{
-    "registry-mirrors": [ "https://hub.your_domain_name" ]
-}
-```
-
-> **说明：** 配置了`daemon.json`之后，现在拉取镜像无需指定你的加速地址，直接执行`docker pull`拉取你需要的镜像即可。下面的步骤是你在没有配置`daemon.json`的时候，拉取镜像需要加上你的加速地址才可以正常拉取。
-
----
-
-**1. 使用自建的 Registry 地址替换官方的 Registry 地址拉取镜像**
-```shell
-# docker hub Registry
-## 源：nginx:latest
-## 替换
-docker pull hub.your_domain_name/library/nginx:latest
-
-# Google Registry
-## 源：gcr.io/google-containers/pause:3.1
-## 替换：
-docker pull gcr.your_domain_name/google-containers/pause:3.1
-```
-
-**2. 前缀替换的 Registry 的参考**
+### 前缀替换说明
+<details>
+<summary><strong>点击查看</strong></summary>
+<div>
 
 | 源站 | 替换为 | 平台 |
 |-------|---------------|----------|
@@ -192,64 +170,45 @@ docker pull gcr.your_domain_name/google-containers/pause:3.1
 | docker.elastic.co     | elastic.your_domain_name  | Elastic Stack
 | nvcr.io    | nvcr.your_domain_name  | NVIDIA Container Registry
 
+</details>
+
 ---
 
-> **详细教程：** <br>
-> [自建Docker镜像加速服务：加速与优化镜像管理](https://www.dqzboy.com/8709.html)<br>
-> [自建Docker镜像加速，并把域名托管到CF加速镜像拉取](https://www.dqzboy.com/17665.html)
 
-## 📚 展示
-<br/>
-<table>
-    <tr>
-      <td width="50%" align="center"><b>系统环境检查</b></td>
-      <td width="50%" align="center"><b>服务部署安装</b></td>
-    </tr>
-    <tr>
-        <td width="50%" align="center"><img src="https://github.com/dqzboy/Docker-Proxy/assets/42825450/55df7f6f-c788-4200-9bcd-631998dc53ef?raw=true"></td>
-        <td width="50%" align="center"><img src="https://github.com/dqzboy/Docker-Proxy/assets/42825450/c544fb1e-ecd5-447c-9661-0c5913586118?raw=true"></td>
-    </tr>
-</table>
-
-## 💻 UI界面
+## 💻 Hubcmd-UI
 
 > HubCMD-UI 手动安装教程：[点击查看教程](hubcmdui/README.md)
 
 <br/>
 <table>
     <tr>
-      <td width="50%" align="center"><b>Docker Registry UI</b></td>
-      <td width="50%" align="center"><b>Docker HubCMD UI</b></td>
+      <td width="50%" align="center"><b>镜像加速</b></td>
+      <td width="50%" align="center"><b>镜像搜索</b></td>
     </tr>
     <tr>
-        <td width="50%" align="center"><img src="https://github.com/dqzboy/Docker-Proxy/assets/42825450/0ddb041b-64f6-4d93-b5bf-85ad3b53d0e0?raw=true"></td>
-        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/f394041e-954c-4b04-9cbb-d61c43290db6?raw=true"></td>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/e8852bfb-8bda-4dee-805e-a93419aa54ab"?raw=true"></td>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/b3a6a80a-284c-4117-b1bf-9d4c4556717f"?raw=true"></td>
     </tr>
     <tr>
-      <td width="50%" align="center"><b>文档教程管理</b></td>
-      <td width="50%" align="center"><b>HubCMD-UI后台</b></td>
+      <td width="50%" align="center"><b>文档管理</b></td>
+      <td width="50%" align="center"><b>TAG搜索</b></td>
     </tr>
     <tr>
-        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/6f34d717-95c8-47b4-89b8-812151904448?raw=true"></td>
-        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/816c95af-dbd1-46ce-b550-87e0853f23e2?raw=true"></td>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/66be3dae-8d46-4144-932e-c5493c93fe2f"?raw=true"></td>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/f1208858-ec69-47b3-88d2-9a0bc112ea94"?raw=true"></td>
+    </tr>
+    <tr>
+      <td width="50%" align="center"><b>控制面板</b></td>
+      <td width="50%" align="center"><b>容器管理</b></td>
+    </tr>
+    <tr>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/bc066047-15d3-45fc-b363-ded37bfe1121"?raw=true"></td>
+        <td width="50%" align="center"><img src="https://github.com/user-attachments/assets/78ad0e29-abfd-47d6-a132-c5b49b48bc95"?raw=true"></td>
     </tr>
 </table>
 
 ---
 
-## 👨🏻‍💻 问题
-
-<details>
-<summary><strong>问题总结</strong></summary>
-<div>
-
-> 部署、使用相关等常见问题总结，欢迎补充！
-
-相关问题总结: [点击查看](Issue/issue.md)
-
-</details>
-
----
 
 ## 🫶 赞助
 如果你觉得这个项目对你有帮助，请给我点个Star。并且情况允许的话，可以给我一点点支持，总之非常感谢支持😊

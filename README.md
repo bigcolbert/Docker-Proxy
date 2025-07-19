@@ -60,44 +60,19 @@
 
 > **部署过程中出现的问题或者疑问，请点击这里 [问题总结](Issue/issue.md)，查看是否有你遇到的情况！尝试先自己解决。**
 
-<table style="width: 100%; table-layout: fixed;">
-    <tr>
-      <td width="50%" align="center"><b>海外服务器</b></td>
-      <td width="50%" align="center"><b>海外服务器</b></td>
-    </tr>
-    <tr>
-        <td width="50%" align="center">
-            <a href="https://dqzboy.github.io/proxyui/racknerd" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/Image_2025-07-07_16-14-49.png?raw=true" 
-                     alt="RackNerd" 
-                     style="width: 100%; height: auto; max-width: 200px; object-fit: contain;">
-            </a>
-        </td>
-        <td width="50%" align="center">
-            <a href="https://dqzboy.github.io/proxyui/CloudCone" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/111.png?raw=true" 
-                     alt="CloudCone" 
-                     style="width: 100%; height: auto; max-width: 200px; object-fit: contain;">
-            </a>
-        </td>
-    </tr>
-</table>
-
 
 ---
 
 ## 🔨 功能
-- [x] 一键部署Docker镜像代理服务的功能，支持基于官方Docker Registry的镜像代理. 
-- [x] 支持多个镜像仓库的代理，包括Docker Hub、GitHub Container Registry(ghcr.io)、Quay Container Registry(quay.io)、Kubernetes Container Registry(k8s.gcr.io)、Microsoft Container(mcr.microsoft.com)、Elastic Stack(docker.elastic.co)
-- [x] 自动检查并安装所需的依赖软件，如Docker\Compose、Nginx\Caddy等，并确保系统环境满足运行要求
-- [x] 根据你所选择部署的WEB反代服务，自动渲染对应的Nginx或Caddy服务配置
-- [x] 支持配置账号密码登入Docker Hub，可访问 Docker Hub 上的私有镜像同时解决Docker Hub的下载频率限制 [配置参考](https://github.com/dqzboy/Docker-Proxy/blob/main/Issue/issue.md#12%E5%85%B3%E4%BA%8Edocker-hub%E5%85%8D%E8%B4%B9%E6%8B%89%E5%8F%96%E6%94%BF%E7%AD%96%E5%86%8D%E6%AC%A1%E5%8F%98%E6%9B%B4%E5%90%8E%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
-- [x] 支持自定义配置代理缓存时间(PROXY_TTL)、支持配置IP黑白名单，防止恶意攻击行为
-- [x] 提供了服务管理、配置管理、服务卸载、认证授权等功能，方便用户进行日常管理和维护
+- [x] 一键部署Docker镜像代理服务，支持多个上游镜像仓库代理，如`Docker Hub`、`ghcr`、`quay`、`k8s`、`mcr.microsoft.com`、`docker.elastic.co`等
+- [x] 自动检查安装软件依赖，如Docker\Compose、Nginx\Caddy等
+- [x] 支持选择自动部署等反代服务，自动渲染对应Nginx或Caddy反代配置
+- [x] 支持配置账号密码登入Docker Hub，可下载私有镜像并解决Docker Hub镜像下载频率限制 [配置参考](https://github.com/dqzboy/Docker-Proxy/blob/main/Issue/issue.md#12%E5%85%B3%E4%BA%8Edocker-hub%E5%85%8D%E8%B4%B9%E6%8B%89%E5%8F%96%E6%94%BF%E7%AD%96%E5%86%8D%E6%AC%A1%E5%8F%98%E6%9B%B4%E5%90%8E%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+- [x] 支持自定义配置代理缓存时间(PROXY_TTL)、支持配置IP黑/白名单，防止恶意攻击行为
+- [x] 提供服务管理、配置管理、服务卸载、认证授权等功能，方便后期日常运维管理
 - [x] 支持一键配置本机Docker代理和容器服务代理(HTTP_PROXY)，仅支持http
 - [x] 支持国内服务器一键部署，解决国内环境无法安装Docker\Compose服务难题
-- [x] 支持主流Linux发行版操作系统,例如Centos、Ubuntu、Rocky、Debian、Rhel等，支持主流ARCH架构下部署，包括linux/amd64、linux/arm64
-- [x] HubCMD-UI服务，面板展示、镜像搜索、文档教程、容器管理、容器监控、网络测试、用户中心等功能
+- [x] HubCMD-UI服务，面板展示、镜像搜索、文档教程、容器管理、容器监控告警等功能
 
 ## 📦 部署
 ### 通过项目脚本部署
@@ -182,23 +157,12 @@ docker logs -f [容器ID或名称]
 
 </details>
 
-
-### 前缀替换说明
+### 使用教程
 <details>
 <summary><strong>点击查看</strong></summary>
 <div>
 
-| 源站 | 替换为 | 平台 |
-|-------|---------------|----------|
-| docker.io   | hub.your_domain_name   |  docker hub 
-| gcr.io      | gcr.your_domain_name   |  Google Container Registry
-| ghcr.io     | ghcr.your_domain_name  |  GitHub Container Registry
-| k8s.gcr.io     | k8s-gcr.your_domain_name  | Kubernetes Container Registry
-| registry.k8s.io     | k8s.your_domain_name  | Kubernetes's container image registry
-| quay.io     | quay.your_domain_name  | Quay Container Registry
-| mcr.microsoft.com     | mcr.your_domain_name  | Microsoft Container Registry
-| docker.elastic.co     | elastic.your_domain_name  | Elastic Stack
-| nvcr.io    | nvcr.your_domain_name  | NVIDIA Container Registry
+[使用教程](https://dqzboy.github.io/docs/pages/install.html#%E2%9C%A8-%E4%BD%BF%E7%94%A8)
 
 </details>
 
@@ -239,34 +203,44 @@ docker logs -f [容器ID或名称]
 
 ---
 
-
-## 🫶 赞助
-如果你觉得这个项目对你有帮助，请给我点个Star。并且情况允许的话，可以给我一点点支持，总之非常感谢支持😊
+## 💌 推广
 
 <table>
+  <thead>
     <tr>
-      <td width="50%" align="center"><b> Alipay </b></td>
-      <td width="50%" align="center"><b> WeChat Pay </b></td>
+      <th width="50%" align="center">描述信息</th>
+      <th width="50%" align="center">图文介绍</th>
     </tr>
+  </thead>
+  <tbody>
+    <!-- 第一个广告：RackNerd -->
     <tr>
-        <td width="50%" align="center"><img src="https://github.com/dqzboy/Deploy_K8sCluster/assets/42825450/223fd099-9433-468b-b490-f9807bdd2035?raw=true"></td>
-        <td width="50%" align="center"><img src="https://github.com/dqzboy/Deploy_K8sCluster/assets/42825450/9404460f-ea1b-446c-a0ae-6da96eb459e3?raw=true"></td>
+      <td width="50%" align="left">
+        <a href="https://dqzboy.github.io/proxyui/racknerd" target="_blank">提供高性价比的海外VPS，支持多种操作系统，适合搭建Docker代理服务。</a>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://dqzboy.github.io/proxyui/racknerd" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/Image_2025-07-07_16-14-49.png?raw=true" alt="RackNerd" width="200" height="120">
+        </a>
+      </td>
     </tr>
+    <!-- 第二个广告：CloudCone -->
+    <tr>
+      <td width="50%" align="left">
+        <a href="https://dqzboy.github.io/proxyui/CloudCone" target="_blank">CloudCone 提供灵活的云服务器方案，支持按需付费，适合个人和企业用户。</a>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://dqzboy.github.io/proxyui/CloudCone" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/111.png?raw=true" alt="CloudCone" width="200" height="120">
+        </a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
----
+##### *Telegram Bot: [点击联系](https://t.me/WiseAidBot)*
+**仅接受长期稳定运营，信誉良好的商家*
 
-## 😺 其他
-
-开源不易,若你参考此项目或基于此项目修改可否麻烦在你的项目文档中标识此项目？谢谢你！
-
-
-## ❤ 鸣谢
-感谢以下项目的开源的付出：
-
-[CNCF Distribution](https://distribution.github.io/distribution/) 
-
-[docker-registry-browser](https://github.com/klausmeyer/docker-registry-browser)
 
 ## 🤝 参与贡献
 
@@ -276,6 +250,20 @@ docker logs -f [容器ID或名称]
   <img src="https://contrib.rocks/image?repo=dqzboy/Docker-Proxy" />
 </a>
 
+## ❤ 鸣谢
+感谢以下项目的开源的付出：
+
+[CNCF Distribution](https://distribution.github.io/distribution/) 
+
+[docker-registry-browser](https://github.com/klausmeyer/docker-registry-browser)
+
+---
+
+[NodeSupport](https://github.com/NodeSeekDev/NodeSupport)赞助了本项目
+
+<a href="https://yxvm.com/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/yxvm.png" width="300" height="200">
+</a>
 
 ## License
 Docker-Proxy is available under the [Apache 2 license](./LICENSE)

@@ -220,7 +220,7 @@ docker logs -f [容器ID或名称]
       </td>
       <td width="50%" align="center">
         <a href="https://dqzboy.github.io/proxyui/racknerd" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/Image_2025-07-07_16-14-49.png?raw=true" alt="RackNerd" width="200" height="120">
+          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/Image_2025-07-07_16-14-49.png?raw=true" alt="RackNerd" width="200" height="150">
         </a>
       </td>
     </tr>
@@ -231,14 +231,25 @@ docker logs -f [容器ID或名称]
       </td>
       <td width="50%" align="center">
         <a href="https://dqzboy.github.io/proxyui/CloudCone" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/111.png?raw=true" alt="CloudCone" width="200" height="120">
+          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/111.png?raw=true" alt="CloudCone" width="200" height="150">
+        </a>
+      </td>
+    </tr>
+    <!-- 第三个广告：CloudCone -->
+    <tr>
+      <td width="50%" align="left">
+        <a href="https://www.thordata.com/?ls=VNSCxroa&lk=Docker-Proxy" target="_blank">Thordata 2M+ 原生静态住宅 IP，稳定且高匿名。助力合规、高效数据抓取。</a>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://www.thordata.com/?ls=VNSCxroa&lk=Docker-Proxy" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/Thordata_01.jpg?raw=true" alt="Thordata" width="200" height="200">
         </a>
       </td>
     </tr>
   </tbody>
 </table>
 
-##### *Telegram Bot: [点击联系](https://t.me/WiseAidBot)*
+##### *Telegram Bot: [点击联系](https://t.me/WiseAidBot) ｜ E-Mail: support@dqzboy.com*
 **仅接受长期稳定运营，信誉良好的商家*
 
 
@@ -257,13 +268,6 @@ docker logs -f [容器ID或名称]
 
 [docker-registry-browser](https://github.com/klausmeyer/docker-registry-browser)
 
----
-
-[NodeSupport](https://github.com/NodeSeekDev/NodeSupport)赞助了本项目
-
-<a href="https://yxvm.com/" target="_blank">
-  <img src="https://cdn.jsdelivr.net/gh/dqzboy/Images/dqzboy-proxy/yxvm.png" width="300" height="200">
-</a>
 
 ## License
 Docker-Proxy is available under the [Apache 2 license](./LICENSE)

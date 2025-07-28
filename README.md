@@ -213,7 +213,6 @@ docker logs -f [容器ID或名称]
     </tr>
   </thead>
   <tbody>
-    <!-- 第一个广告：RackNerd -->
     <tr>
       <td width="50%" align="left">
         <a href="https://dqzboy.github.io/proxyui/racknerd" target="_blank">提供高性价比的海外VPS，支持多种操作系统，适合搭建Docker代理服务。</a>
@@ -224,7 +223,6 @@ docker logs -f [容器ID或名称]
         </a>
       </td>
     </tr>
-    <!-- 第二个广告：CloudCone -->
     <tr>
       <td width="50%" align="left">
         <a href="https://dqzboy.github.io/proxyui/CloudCone" target="_blank">CloudCone 提供灵活的云服务器方案，支持按需付费，适合个人和企业用户。</a>
@@ -235,7 +233,7 @@ docker logs -f [容器ID或名称]
         </a>
       </td>
     </tr>
-    <!-- 第三个广告：CloudCone -->
+    <!-- start 2025/07/22-->
     <tr>
       <td width="50%" align="left">
         <a href="https://www.thordata.com/?ls=VNSCxroa&lk=Docker-Proxy" target="_blank">Thordata 2M+ 原生静态住宅 IP，稳定且高匿名。助力合规、高效数据抓取。</a>
@@ -267,7 +265,6 @@ docker logs -f [容器ID或名称]
 [CNCF Distribution](https://distribution.github.io/distribution/) 
 
 [docker-registry-browser](https://github.com/klausmeyer/docker-registry-browser)
-
 
 ## License
 Docker-Proxy is available under the [Apache 2 license](./LICENSE)
